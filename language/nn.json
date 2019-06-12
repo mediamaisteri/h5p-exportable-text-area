@@ -8,6 +8,9 @@
     {
       "label": "Infotekst for \"ikkje støtta eksport\"",
       "default": "Eksport er ikkje støtta på eininga di"
+    },
+    {
+      "label": "Include comments in the exported document"
     }
   ]
 }

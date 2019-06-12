@@ -8,6 +8,9 @@
     {
       "label": "Infotekst for \"ikke supportert eksport\"",
       "default": "Eksport er ikke støttet på din enhet"
+    },
+    {
+      "label": "Include comments in the exported document"
     }
   ]
 }

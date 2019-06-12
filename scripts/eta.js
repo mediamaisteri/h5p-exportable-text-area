@@ -12,6 +12,7 @@ H5P.ExportableTextArea = (function ($) {
     this.header = (params.label !== undefined ? params.label : '');
     this.notSupportedText = params.exportNotSupported;
     this.defaultAnswer = (contentData && contentData.previousState ? contentData.previousState.answer : '');
+    this.contentData = contentData;
 
     var supportsExport = H5P.ExportableTextArea.Exporter.supportsExport();
     this.$label = $('<div class="h5p-eta-label">' + this.header + '</div>');
@@ -35,7 +36,7 @@ H5P.ExportableTextArea = (function ($) {
   C.prototype.exportAnswers = true;
 
   C.prototype.getTitle = function() {
-    return H5P.createTitle(this.header);
+    return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : '');
   };
 
   C.prototype.getCurrentState = function () {
@@ -67,7 +68,7 @@ H5P.ExportableTextArea.CPInterface = (function _eta_cp_interface_internal() {
   this.onDelete = function (params, slideIndex, elementIndex, elementInstance) {
     // Reorder index on current slide
     var filtered = params.slides[slideIndex].elements.filter(function (element, index) {
-      return H5P.libraryFromString(element.action.library).machineName === 'H5P.ExportableTextArea';
+      return element.action && H5P.libraryFromString(element.action.library).machineName === 'H5P.ExportableTextArea';
     }).sort(function (a, b) {
       return a.action.params.index - b.action.params.index;
     });

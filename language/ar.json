@@ -6,7 +6,8 @@
     },
     {},
     {
-      "label": "تسمية الاصدار لا تعمل"
+      "label": "تسمية الاصدار لا تعمل",
+      "default": "Export not supported on your device"
     },
     {
       "label": "إدراج التعليقات في وثيقة الاصدار"
